@@ -1,1 +1,4 @@
-<h1>메인</h1>
+
+    <article class="content-container">
+        <div class="content"></div>
+    </article>
