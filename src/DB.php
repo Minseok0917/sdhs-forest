@@ -9,7 +9,7 @@ class DB
         if(is_null(self::$db)) {
             $option = [ 19 => 5, 3 => 2 ];
 
-            self::$db = new \PDO("mysql:host=localhost; dbname= ; charset=utf8mb4", "root", "", $option);
+            self::$db = new \PDO("mysql:host=localhost; dbname=sdhsForest; charset=utf8mb4", "root", "", $option);
         }
         return self::$db;
     }
