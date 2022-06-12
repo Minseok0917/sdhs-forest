@@ -18,10 +18,18 @@
                     </div>
                     <nav class="menu">
                         <ul class="flex">
-                            <li><a href="#"><i class="fa-solid fa-address-card"></i>PROFILE</a></li>
-                            <li class="active"><a href="#"><i class="fa-solid fa-bullhorn"></i>COMMUNITY</a></li>
-                            <li><a href="#"><i class="fa-solid fa-right-to-bracket"></i>LOGIN</a></li>
-                            <li><a href="#"><i class="fa-solid fa-user-plus"></i>Sign Up</a></li>
+                            <li class="<?=$chk == "profile" ? "active" : "" ?>" >
+                                <a href="/profile"><i class="fa-solid fa-address-card"></i>PROFILE</a>
+                            </li>
+                            <li class="<?=$chk == "community" ? "active" : "" ?>" >
+                                <a href="/community"><i class="fa-solid fa-bullhorn"></i>COMMUNITY</a>
+                            </li>
+                            <li class="<?=$chk == "login" ? "active" : "" ?>" >
+                                <a href="/login"><i class="fa-solid fa-right-to-bracket"></i>LOGIN</a>
+                            </li>
+                            <li class="<?=$chk == "signup" ? "active" : "" ?>" >
+                                <a href="/signup"><i class="fa-solid fa-user-plus"></i>Sign Up</a>
+                            </li>
                         </ul>
                     </nav>
                 </div>

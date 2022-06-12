@@ -34,3 +34,17 @@ function back($t = "") {
     exit;
 };
 
+
+function user()
+{
+    return isset($_SESSION["user"]) ? $_SESSION["user"] : false;
+};
+
+
+function loginChk()
+{
+    if(!user()) {
+        alert("로그인을 하신 뒤 이용해주세요");
+    }
+}
+
