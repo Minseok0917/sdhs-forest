@@ -30,9 +30,16 @@
             <div class="write_list">
 
             </div>
-            
+             
             <div class="like_list">
 
             </div> -->
+
+
+
+
+
+
+            
         </div>
     </article>
