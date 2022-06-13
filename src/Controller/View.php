@@ -3,17 +3,22 @@ namespace src\Controller;
 
 class View
 {
-    function main() {
-        view("/main");
-    }
-
-    function profilePage()
+    function home()
     {
-        view("/user/profile", ["chk" => "profile"]);
+        view("home");
     }
+    function profilePage($args)
+    {
+        loginChk();
+        $user_id = $args[1];
+        $user = fetch("SELECT `user_id`, `user_name`, `profile_img` FROM `user_tbl` WHERE `user_id` = ?", [$user_id]);
 
+        view("/user/profile", ["chk" => "profile", "thisUser" => $user]);
+    }
+    
     function communityPage()
     {
+        loginChk();
         view("/community", ["chk" => "community"]);
     }
 
