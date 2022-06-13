@@ -3,6 +3,10 @@ namespace src\Controller;
 
 class View
 {
+    function home()
+    {
+        view("home");
+    }
     function profilePage($args)
     {
         loginChk();
