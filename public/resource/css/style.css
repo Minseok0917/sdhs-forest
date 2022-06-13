@@ -44,10 +44,22 @@ section .content-container{width: 100%; height: 100%; padding: 60px 0 0 20px;}
 section .content-container .content{width: 100%; height: 100%; margin: 0 auto; background: #daefdc; border-radius: 50px 0 0 0; }
 
 
-section .content-container .signup{width: 100%; height: 100%; justify-content: center; align-items: center; flex-direction: column; gap: 30px;}
-section .content-container .signup h3.title{font-size: 35px; color: #75a760;}
-section .content-container .signup form{width: 500px; padding: 20px 30px; background: #fff; flex-direction: column;}
-section .content-container .signup form label>*{display: block;}
+section .content-container .util-content{width: 100%; height: 100%; justify-content: center; align-items: center; flex-direction: column; gap: 20px;}
+section .content-container .util-content h3.title{font-size: 35px; color: #75a760;}
+section .content-container .util-content form{width: 450px; padding: 20px 30px; background: #fff; flex-direction: column; gap: 15px;}
+section .content-container .util-content form .form-content{position: relative; margin-top: 20px;}
+section .content-container .util-content form .form-content input[type="text"]{width: 100%; padding-left: 15px; padding-top: 10px; padding-bottom: 10px; background: transparent; border: none; border-bottom: 1px solid #999; font-size: 18px; outline: none;}
+section .content-container .util-content form .form-content label{position: absolute; left: 10px; top: 10px; font-size: 18px; color: #999; transition: all .3s;}
+
+section .content-container .util-content form .form-content input:focus + label,
+section .content-container .util-content form .form-content input:valid + label {top: -15px; font-size: 13px; color: #2f6e14;}
+
+section .content-container .signup form .profile-img{padding: 0 10px;}
+section .content-container .signup form .profile-img p{color: #666; margin-bottom: 10px; font-size: 17px;}
+section .content-container .util-content form input[type="submit"]{margin-top: 20px; height: 45px; background: none; border: 2px solid #75a760; border-radius: 50px; font-size: 17px; color: #555; transition: all .3s; cursor: pointer;}
+section .content-container .util-content form input[type="submit"]:hover{background: #75a760; color: #fff;}
+
+
 
 /* header .container{flex-direction: column;}
 header .container .util-menu{width: 100%; line-height: 40px; border-bottom: 1px solid #ccc;}
