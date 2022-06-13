@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <!-- <link rel="stylesheet" href="/resource/bootstrap-5.1.3-dist/css/bootstrap.css"> -->
     <link rel="stylesheet" href="/resource/css/style.css">
 </head>
 <body>
@@ -41,7 +42,14 @@
         <section class="container">
             <nav class="util-menu">
                 <ul class="flex">
-                    <li><i class="fa-solid fa-bell"></i></li>
-                    <li class="profile"><a href="#"><img src="/resource/img/profile/default.jpg" alt="profile" title="profile"></a></li>
+                    <?php if(user()): ?>
+                        <li class="logout"><a href="/logout">로그아웃</a></li>
+                        <li><i class="fa-solid fa-bell"></i></li>
+                        <li class="profile">
+                            <a href="/profile"><img src="/resource/img/profile/<?=user()->profile_img ?>.jpg" alt="profile" title="profile"></a>
+                        </li>
+                    <?php else: ?>
+                        <li><i class="fa-solid fa-bell"></i></li>
+                    <?php endif; ?>
                 </ul>
             </nav>

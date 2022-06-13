@@ -9,11 +9,13 @@ class View
 
     function profilePage()
     {
+        loginChk();
         view("/user/profile", ["chk" => "profile"]);
     }
-
+    
     function communityPage()
     {
+        loginChk();
         view("/community", ["chk" => "community"]);
     }
 

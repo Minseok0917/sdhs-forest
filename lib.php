@@ -44,7 +44,22 @@ function user()
 function loginChk()
 {
     if(!user()) {
-        alert("로그인을 하신 뒤 이용해주세요");
+        move("/login", "로그인을 하신 뒤 이용해주세요");
     }
-}
+};
+
+function getItem($tg, ...$names)
+{
+    return array_map(function($name) use ($tg) {
+        return $tg[$name];
+    }, $names);
+};
+
+function get(...$names) {
+    return getItem($_GET, ...$names);
+};
+
+function post(...$names) {
+    return getItem($_POST, ...$names);
+};
 
