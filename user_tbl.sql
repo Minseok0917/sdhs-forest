@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- 생성 시간: 22-06-13 03:31
+-- 생성 시간: 22-06-13 09:42
 -- 서버 버전: 10.4.24-MariaDB
 -- PHP 버전: 8.1.6
 
@@ -30,10 +30,14 @@ SET time_zone = "+00:00";
 CREATE TABLE `user_tbl` (
   `sn` int(11) NOT NULL,
   `user_id` varchar(100) NOT NULL,
-  `user_passord` varchar(100) NOT NULL,
+  `user_password` varchar(100) NOT NULL,
   `user_name` varchar(100) NOT NULL,
   `profile_img` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- 테이블의 덤프 데이터 `user_tbl`
+--
 
 --
 -- 덤프된 테이블의 인덱스
@@ -43,7 +47,7 @@ CREATE TABLE `user_tbl` (
 -- 테이블의 인덱스 `user_tbl`
 --
 ALTER TABLE `user_tbl`
-  ADD PRIMARY KEY (`sn`);
+  ADD PRIMARY KEY (`sn`,`user_id`);
 
 --
 -- 덤프된 테이블의 AUTO_INCREMENT
@@ -53,7 +57,7 @@ ALTER TABLE `user_tbl`
 -- 테이블의 AUTO_INCREMENT `user_tbl`
 --
 ALTER TABLE `user_tbl`
-  MODIFY `sn` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `sn` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

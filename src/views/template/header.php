@@ -19,18 +19,21 @@
                     </div>
                     <nav class="menu">
                         <ul class="flex">
-                            <li class="<?=$chk == "profile" ? "active" : "" ?>" >
-                                <a href="/profile"><i class="fa-solid fa-address-card"></i>PROFILE</a>
-                            </li>
                             <li class="<?=$chk == "community" ? "active" : "" ?>" >
                                 <a href="/community"><i class="fa-solid fa-bullhorn"></i>COMMUNITY</a>
                             </li>
-                            <li class="<?=$chk == "login" ? "active" : "" ?>" >
-                                <a href="/login"><i class="fa-solid fa-right-to-bracket"></i>LOGIN</a>
-                            </li>
-                            <li class="<?=$chk == "signup" ? "active" : "" ?>" >
-                                <a href="/signup"><i class="fa-solid fa-user-plus"></i>Sign Up</a>
-                            </li>
+                            <?php if(!user()): ?>
+                                <li class="<?=$chk == "login" ? "active" : "" ?>" >
+                                    <a href="/login"><i class="fa-solid fa-right-to-bracket"></i>LOGIN</a>
+                                </li>
+                                <li class="<?=$chk == "signup" ? "active" : "" ?>" >
+                                    <a href="/signup"><i class="fa-solid fa-user-plus"></i>Sign Up</a>
+                                </li>
+                            <?php else: ?> 
+                                <li class="<?=$chk == "profile" ? "active" : "" ?>" >
+                                    <a href="/profile/<?=user()->user_id ?>"><i class="fa-solid fa-address-card"></i>PROFILE</a>
+                                </li>
+                            <?php endif; ?> 
                         </ul>
                     </nav>
                 </div>
@@ -46,7 +49,7 @@
                         <li class="logout"><a href="/logout">로그아웃</a></li>
                         <li><i class="fa-solid fa-bell"></i></li>
                         <li class="profile">
-                            <a href="/profile"><img src="/resource/img/profile/<?=user()->profile_img ?>.jpg" alt="profile" title="profile"></a>
+                            <a href="/profile/<?=user()->user_id ?>"><img src="/resource/img/profile/<?=user()->profile_img ?>.jpg" alt="profile" title="profile"></a>
                         </li>
                     <?php else: ?>
                         <li><i class="fa-solid fa-bell"></i></li>

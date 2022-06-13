@@ -8,6 +8,12 @@ class User
         $imgName = "default";
         $profileImg = $_POST["base64Img"];
 
+        $id_Chk = fetch("SELECT * FROM `user_tbl` WHERE `user_id` = ?", [$id]);
+
+        if($id_Chk) {
+            back("이미 사용중인 아이디입니다.");
+        }
+
         if($pass !== $passc) {
             back("비밀번호가 일치 하지 않습니다.");
         }
@@ -34,14 +40,14 @@ class User
         }
 
         $_SESSION["user"] = $user;
-        move("/", "로그인 되었습니다.");
+        move("/community", "로그인 되었습니다.");
     }
 
     function logout()
     {
         unset($_SESSION["user"]);
 
-        move("/", "로그아웃 되었습니다.");
+        move("/login", "로그아웃 되었습니다.");
     }
 }
 

@@ -2,8 +2,7 @@
 
 
 $get(
-    "/@View@main",
-    "/profile@View@profilePage",
+    "/profile/:id@View@profilePage",
     "/community@View@communityPage",
     "/login@View@loginPage",
     "/signup@View@signupPage",
