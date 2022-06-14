@@ -8,12 +8,14 @@ $get(
     "/login@View@loginPage",
     "/signup@View@signupPage",
     "/insertList@View@insertList",
-    
+
     "/logout@User@logout",
 );
 
 $post(
     "/signupPro@User@signupPro",
     "/loginPro@User@loginPro",
+    
+    "/insertListPro@List@insertListPro",
 );
 
