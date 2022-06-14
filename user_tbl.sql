@@ -38,7 +38,8 @@ CREATE TABLE `user_tbl` (
 --
 -- 테이블의 덤프 데이터 `user_tbl`
 --
-
+INSERT INTO `user_tbl` (`sn`, `user_id`, `user_password`, `user_name`, `profile_img`) VALUES
+(1, 'admin', '1234', 'admin', 'default');
 --
 -- 덤프된 테이블의 인덱스
 --
