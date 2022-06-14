@@ -15,7 +15,7 @@
             <div class="header-container flex">
                 <div class="title flex">
                     <div class="logo">
-                        <i class="fa-solid fa-font-awesome"> LOGO</i>
+                        <i class="fa-solid fa-font-awesome"> sdhs_forest</i>
                     </div>
                     <nav class="menu">
                         <ul class="flex">
@@ -46,6 +46,7 @@
             <nav class="util-menu">
                 <ul class="flex">
                     <?php if(user()): ?>
+                        <li><p><?=user()->user_name ?>님 환영합니다.</p></li>
                         <li class="logout"><a href="/logout">로그아웃</a></li>
                         <li><i class="fa-solid fa-bell"></i></li>
                         <li class="profile">

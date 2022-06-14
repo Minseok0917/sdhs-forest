@@ -31,6 +31,11 @@ class View
     {
         view("/signup", ["chk" => "signup"]);
     }
+
+    function insertList()
+    {
+        view("/insertList", ["chk" => "community"]);
+    }
 }
 
 
