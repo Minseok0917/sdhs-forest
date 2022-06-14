@@ -16,7 +16,7 @@
                         <p><?=$thisUser->user_name ?></p>
                     </div>
                     <?php if($thisUser->user_name === user()->user_name): ?>
-                        <button>게시글 생성</button>
+                        <button class="btn"><a href="/insertList">Create more</a></button>
                     <?php endif; ?>
                 </div>
             </div>

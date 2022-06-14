@@ -7,6 +7,8 @@ $get(
     "/community@View@communityPage",
     "/login@View@loginPage",
     "/signup@View@signupPage",
+    "/insertList@View@insertList",
+    
     "/logout@User@logout",
 );
 
