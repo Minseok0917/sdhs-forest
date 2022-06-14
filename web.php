@@ -16,6 +16,6 @@ $post(
     "/signupPro@User@signupPro",
     "/loginPro@User@loginPro",
     
-    "/insertListPro@List@insertListPro",
+    "/insertListPro@Board@insertListPro",
 );
 
