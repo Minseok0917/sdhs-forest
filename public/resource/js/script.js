@@ -3,6 +3,7 @@
     const article = document.querySelector("article.content-container");
     article.id === "signup" ? signupPage() :
     article.id === "insertList" ? insertListPage() :
+    article.id === "detail" ? detailPage() :
     ""
 }
 
@@ -51,6 +52,7 @@ function insertListPage() {
         const ipt = document.createElement("input");
         ipt.type = "file";
         ipt.name = "list_img[]";
+        ipt.multiple = true;
         ipt.addEventListener('change', imgChangeHandle);
         photoContent.appendChild(ipt);
     };
@@ -59,7 +61,16 @@ function insertListPage() {
 };
 
 
+function detailPage() {
+    const heart = document.querySelector(".like>h3");
 
+    const _heartClick = function() {
+        console.log(1);
+
+    };
+
+    heart.addEventListener("click", _heartClick);
+}
 
 
 

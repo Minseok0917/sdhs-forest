@@ -19,7 +19,11 @@ class View
     function communityPage()
     {
         loginChk();
-        view("/community", ["chk" => "community"]);
+        $list = fetchAll("SELECT `sn`, `list_title`, `list_img`, `owner` FROM `list_tbl`");
+        // echo "<pre>";
+        // var_dump($list);
+        // echo "</pre>";
+        view("/list/community", ["chk" => "community", "list" => $list]);
     }
 
     function loginPage()
@@ -32,10 +36,6 @@ class View
         view("/signup", ["chk" => "signup"]);
     }
 
-    function insertList()
-    {
-        view("/insertList", ["chk" => "community"]);
-    }
 }
 
 

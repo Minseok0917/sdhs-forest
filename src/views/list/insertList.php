@@ -4,6 +4,7 @@
             <div class="sub-content">
                 <h3 class="title">Insert List</h3>
                 <form action="/insertListPro" method="post" enctype="multipart/form-data" class="insertForm flex">
+                    <input type="hidden" name="owner" value="<?=user()->user_id ?>" />
                     <div class="form_title flex">
                         <h5>title</h5>
                         <input type="text" name="list_title" placeholder="제목을 입력해주세요" required>

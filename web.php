@@ -4,10 +4,12 @@
 $get(
     "/@View@home",
     "/profile/:id@View@profilePage",
-    "/community@View@communityPage",
+    "/list/community@View@communityPage",
     "/login@View@loginPage",
     "/signup@View@signupPage",
-    "/insertList@View@insertList",
+    "/list/insertList@Board@insertList",
+    
+    "/listDetail/:sn@Board@listDetail",
 
     "/logout@User@logout",
 );

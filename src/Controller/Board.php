@@ -3,39 +3,41 @@ namespace src\Controller;
 
 class Board
 {
+    function insertList()
+    {
+        view("/list/insertList", ["chk" => "community"]);
+    }
+
     function insertListPro() 
     {
-        // [$list_title, $list_content] = post("list_title, list_content");
-        $list_title = $_POST["list_title"];
-        $list_content = $_POST["list_content"];
-        $imgTname = $_FILES["list_img"]["tmp_name"];
-        $imgName = $_FILES["list_img"]["name"];
+        [$list_title, $list_content, $owner] = post("list_title", "list_content", "owner");
+        $imgTname = isset($_FILES["list_img"]) ? $_FILES["list_img"]["tmp_name"] : [];
         $count = fetch("SELECT `sn` FROM `list_tbl` ORDER BY `sn` DESC");
-        $count = $count ? $count+1 : 1;
-        echo "<pre>";
-
+        $count = $count ? $count->sn+1 : 1;
+        
         $resultText = "";
         for($i = 0; $i<count($imgTname); $i++) {
-            // $path = "/resource/img/BoardImg/".$count."_".($i+1);
-            var_dump($imgName[$i]);
-            // var_dump($path);
-            move_uploaded_file($imgTname[$i], "/resource/img/BoardImg/".$imgName[$i]);
-            // $resultText .= $i === 0 ? $count."_".$i+1 : "&".$count."_".$i+1;
+            $path = dirname(dirname(__DIR__))."/public/resource/img/BoardImg/".$count."_".($i+1).".jpg";
+            move_uploaded_file($imgTname[$i], $path);
+            $resultText .= $i === 0 ? $count."_".$i+1 : "&".$count."_".$i+1;
         }
-        echo "<br>";
-        var_dump($resultText);
 
-        echo "</pre>";
+        execute("INSERT INTO `list_tbl`(`list_title`, `list_content`, `list_img`, `owner`) VALUES(?, ?, ?, ?)", [$list_title, $list_content, $resultText, $owner]);
 
-        // echo $list_title;
-        // echo $list_content;
+        move("/list/community", "글이 작성되었습니다.");
+    }
 
-        // foreach($imgs as $i) {
-        //     // 
-        //     echo "<pre>";
-        //     var_dump($i);
-        //     echo "</pre>";
-        // }
+    function listDetail($args) 
+    {
+        $sn = $args[1];
+        $result = fetch("SELECT * FROM `list_tbl` WHERE `sn` = ?", [$sn]);
+        $result->list_img = explode("&", $result->list_img);
+
+        // echo "<pre>";
+        // var_dump($result);
+        // echo "</pre>";
+
+        view("/list/listDetail", ["chk" => "community", "result" => $result]);
     }
 }
 

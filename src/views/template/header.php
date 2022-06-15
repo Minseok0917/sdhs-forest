@@ -15,12 +15,14 @@
             <div class="header-container flex">
                 <div class="title flex">
                     <div class="logo">
-                        <i class="fa-solid fa-font-awesome"> sdhs_forest</i>
+                        <a href="/">
+                            <i class="fa-solid fa-font-awesome"></i> <span>SDHS_FOREST</span>
+                        </a>
                     </div>
                     <nav class="menu">
                         <ul class="flex">
                             <li class="<?=$chk == "community" ? "active" : "" ?>" >
-                                <a href="/community"><i class="fa-solid fa-bullhorn"></i>COMMUNITY</a>
+                                <a href="/list/community"><i class="fa-solid fa-bullhorn"></i>COMMUNITY</a>
                             </li>
                             <?php if(!user()): ?>
                                 <li class="<?=$chk == "login" ? "active" : "" ?>" >
