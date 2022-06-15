@@ -3,6 +3,7 @@
     const article = document.querySelector("article.content-container");
     article.id === "signup" ? signupPage() :
     article.id === "insertList" ? insertListPage() :
+    article.id === "detail" ? detailPage() :
     ""
 }
 
@@ -60,7 +61,16 @@ function insertListPage() {
 };
 
 
+function detailPage() {
+    const heart = document.querySelector(".like>h3");
 
+    const _heartClick = function() {
+        console.log(1);
+
+    };
+
+    heart.addEventListener("click", _heartClick);
+}
 
 
 

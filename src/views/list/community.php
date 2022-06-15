@@ -8,7 +8,7 @@
                     </div>
                 </div>
                 <div class="create-btn">
-                    <button class="btn"><a href="/insertList">Create more</a></button>
+                    <button class="btn"><a href="/list/insertList">Create more</a></button>
                 </div>
                 <div class="item-container flex">
                     <?php foreach($list as $item): ?>
