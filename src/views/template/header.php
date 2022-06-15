@@ -15,7 +15,9 @@
             <div class="header-container flex">
                 <div class="title flex">
                     <div class="logo">
-                        <i class="fa-solid fa-font-awesome"> sdhs_forest</i>
+                        <a href="/">
+                            <i class="fa-solid fa-font-awesome"> sdhs_forest</i>
+                        </a>
                     </div>
                     <nav class="menu">
                         <ul class="flex">

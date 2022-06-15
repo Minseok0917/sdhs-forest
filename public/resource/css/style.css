@@ -94,14 +94,14 @@ section .content-container .signup form .profile-img .img-ex{border-radius: 50%;
 
 
 /* 프로필 페이지 */
-section .content-container>.profile{padding: 50px 70px; flex-direction: column; gap: 30px;}
-section .content-container>.profile>h3.title{font-size: 45px;}
-section .content-container>.profile .profiles{grid-template-columns: 230px auto; gap: 40px;}
-section .content-container>.profile .profiles .profile-img{border-radius: 10px; overflow: hidden;}
-section .content-container>.profile .profiles .profile-text{position: relative; padding: 20px 30px; flex-direction: column; gap: 20px; border-radius: 20px;}
-section .content-container>.profile .profiles .profile-text h3{font-size: 25px;}
-section .content-container>.profile .profiles .profile-text p{font-size: 20px;}
-section .content-container>.profile .profiles .profile-text button{position: absolute; top: 0; right: 20px;}
+section .content-container .sub-content>.profile{width: 95%; margin: 0 auto; flex-direction: column; gap: 30px;}
+section .content-container .sub-content>.profile h3.title{font-size: 45px;}
+section .content-container .sub-content>.profile .profiles{grid-template-columns: 230px auto; gap: 40px;}
+section .content-container .sub-content>.profile .profiles .profile-img{border-radius: 10px; overflow: hidden;}
+section .content-container .sub-content>.profile .profiles .profile-text{position: relative; padding: 20px 30px; flex-direction: column; gap: 20px; border-radius: 20px;}
+section .content-container .sub-content>.profile .profiles .profile-text h3{font-size: 25px;}
+section .content-container .sub-content>.profile .profiles .profile-text p{font-size: 20px;}
+section .content-container .sub-content>.profile .profiles .profile-text button{position: absolute; top: 0; right: 20px;}
 
 
 /* 게시글 작성 페이지 */

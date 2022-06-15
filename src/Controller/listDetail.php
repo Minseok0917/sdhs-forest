@@ -1,8 +1,7 @@
-    <article id="main" class="content-container">
+    <article id="detail" class="content-container">
         <div class="content flex">
             <div class="sub-content flex">
-                <h1>HOME</h1>
-                
+                <h2>detail</h2>
             </div>
         </div>
     </article>

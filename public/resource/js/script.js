@@ -51,6 +51,7 @@ function insertListPage() {
         const ipt = document.createElement("input");
         ipt.type = "file";
         ipt.name = "list_img[]";
+        ipt.multiple = true;
         ipt.addEventListener('change', imgChangeHandle);
         photoContent.appendChild(ipt);
     };
