@@ -5,7 +5,7 @@ class DB{
     static function getDB(){
         if(!self::$db){
             $option = [19=>5, 3=>2];
-            self::$db = new \PDO('mysql:host=localhost;dbname=0522;charset=utf8mb4', "root", "", $option);
+            self::$db = new \PDO('mysql:host=localhost;dbname=sdhs-forest;charset=utf8mb4', "root", "", $option);
         }
         return self::$db;
     }
