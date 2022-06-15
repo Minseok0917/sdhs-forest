@@ -5,7 +5,7 @@ class Board
 {
     function insertList()
     {
-        view("/insertList", ["chk" => "community"]);
+        view("/list/insertList", ["chk" => "community"]);
     }
 
     function insertListPro() 
@@ -24,12 +24,20 @@ class Board
 
         execute("INSERT INTO `list_tbl`(`list_title`, `list_content`, `list_img`, `owner`) VALUES(?, ?, ?, ?)", [$list_title, $list_content, $resultText, $owner]);
 
-        move("/community", "글이 작성되었습니다.");
+        move("/list/community", "글이 작성되었습니다.");
     }
 
     function listDetail($args) 
     {
-        move("/listDetail");
+        $sn = $args[1];
+        $result = fetch("SELECT * FROM `list_tbl` WHERE `sn` = ?", [$sn]);
+        $result->list_img = explode("&", $result->list_img);
+
+        // echo "<pre>";
+        // var_dump($result);
+        // echo "</pre>";
+
+        view("/list/listDetail", ["chk" => "community", "result" => $result]);
     }
 }
 

@@ -40,7 +40,7 @@ class User
         }
 
         $_SESSION["user"] = $user;
-        move("/community", "로그인 되었습니다.");
+        move("/list/community", "로그인 되었습니다.");
     }
 
     function logout()

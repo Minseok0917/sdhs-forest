@@ -23,7 +23,7 @@ class View
         // echo "<pre>";
         // var_dump($list);
         // echo "</pre>";
-        view("/community", ["chk" => "community", "list" => $list]);
+        view("/list/community", ["chk" => "community", "list" => $list]);
     }
 
     function loginPage()

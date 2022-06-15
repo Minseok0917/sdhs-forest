@@ -8,6 +8,7 @@ $get(
     "/login@View@loginPage",
     "/signup@View@signupPage",
     "/insertList@Board@insertList",
+    
     "/listDetail/:sn@Board@listDetail",
 
     "/logout@User@logout",
