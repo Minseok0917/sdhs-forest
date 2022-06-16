@@ -11,6 +11,10 @@ $get(
     
     "/listDetail/:sn@Board@listDetail",
 
+    "/addHeart/:list_sn@Api@addHeart",
+    "/deleteHeart/:list_sn@Api@deleteHeart",
+    "/checkHeart/:list_sn@Api@checkHeart",
+
     "/logout@User@logout",
 );
 

@@ -1,10 +1,12 @@
-    <article id="detail" class="content-container">
+    <article id="detail" class="content-container" data-sn="<?=$result->sn ?>">
         <div class="content flex">
             <div class="sub-content flex">
                 <div class="detail">
-                    <h3 class="title">
-                        <?=$result->list_title ?>
-                    </h3>
+                    <div class="title flex">
+                        <h3><?=$result->list_title ?></h3>
+                        <span><?=$result->list_date ?></span>
+                    </div>
+                    
                     <div class="text">
                         <p><?=$result->list_content ?></p>
                     </div>
@@ -15,9 +17,10 @@
                             </div>
                         <?php endforeach; ?>
                     </div>
-                    <div class="like">
-                        <h3><i class="fa-regular fa-heart"></i> 좋아요</h3>
-                        <!-- <i class="fa-solid fa-heart"></i> -->
+                    <div class="like flex">
+                        <button class="like-btn <?=$result->user_id ? "active": "" ?>">
+                            <i class="fa-regular fa-heart"></i> 좋아요
+                        </button>
                     </div>
                 </div>
             </div>

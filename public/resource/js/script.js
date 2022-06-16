@@ -61,15 +61,32 @@ function insertListPage() {
 };
 
 
-function detailPage() {
-    const heart = document.querySelector(".like>h3");
+async function detailPage() {
+    const likeBtn = document.querySelector(".like .like-btn");
+    const list_sn = document.querySelector("#detail").dataset.sn;
+    const heartChk = await fetch(`/checkHeart/${list_sn}`).then(res => res.json());
+    if(heartChk.result) {
+        likeBtn.classList.add("active");
+        likeBtn.querySelector("i").className = "fa-solid fa-heart";
+    }
 
-    const _heartClick = function() {
-        console.log(1);
-
+    const _likeBtnClick = async function() {
+        const heart = this.querySelector("i");
+        if(this.classList.contains("active")) {
+            // 이미 좋아요 되어있을때
+            const data = await fetch(`/deleteHeart/${list_sn}`).then(res => res.json());
+            alert(data.msg);
+            heart.className = "fa-regular fa-heart";
+        } else {
+            // 좋아요가 안되어있을때
+            const data = await fetch(`/addHeart/${list_sn}`).then(res => res.json());
+            alert(data.msg);
+            heart.className = "fa-solid fa-heart";
+        }
+        this.classList.toggle("active");
     };
 
-    heart.addEventListener("click", _heartClick);
+    likeBtn.addEventListener("click", _likeBtnClick);
 }
 
 

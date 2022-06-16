@@ -24,45 +24,34 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- 테이블 구조 `user_tbl`
+-- 테이블 구조 `heart_tbl`
 --
 
-CREATE TABLE `user_tbl` (
-  `sn` int(11) NOT NULL,
+CREATE TABLE `heart_tbl` (
   `user_id` varchar(100) NOT NULL,
-  `user_password` varchar(100) NOT NULL,
-  `user_name` varchar(100) NOT NULL,
-  `profile_img` varchar(100) NOT NULL
+  `list_sn` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- 테이블의 덤프 데이터 `user_tbl`
+-- 테이블의 덤프 데이터 `heart_tbl`
 --
 
-INSERT INTO `user_tbl` (`sn`, `user_id`, `user_password`, `user_name`, `profile_img`) VALUES
-(1, 'admin', '1234', 'admin', 'default'),
-(2, 'wnsdn', '1234', 'wnsdnnnn', 'default'),
-(4, 'wnsdn2', '1234', 'wnsdn222', 'wnsdn222');
+INSERT INTO `heart_tbl` (`user_id`, `list_sn`) VALUES
+('wnsdn', 1),
+('wnsdn2', 1),
+('wnsdn2', 2),
+('wnsdn2', 3),
+('wnsdn2', 5);
 
 --
 -- 덤프된 테이블의 인덱스
 --
 
 --
--- 테이블의 인덱스 `user_tbl`
+-- 테이블의 인덱스 `heart_tbl`
 --
-ALTER TABLE `user_tbl`
-  ADD PRIMARY KEY (`sn`,`user_id`);
-
---
--- 덤프된 테이블의 AUTO_INCREMENT
---
-
---
--- 테이블의 AUTO_INCREMENT `user_tbl`
---
-ALTER TABLE `user_tbl`
-  MODIFY `sn` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+ALTER TABLE `heart_tbl`
+  ADD PRIMARY KEY (`user_id`,`list_sn`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
