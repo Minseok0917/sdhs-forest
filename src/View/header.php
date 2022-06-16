@@ -7,8 +7,8 @@
     <link>
 </head>
 <body>
-    
-</body>
-</html>
+    <?php if(ss()) :?>    
+        <img src="/upload/<?=$_SESSION['user']->profile?>" alt="">
+        <h2><?= $_SESSION['user']->name ?></h2>
+    <?php endif;?>
 
-<!-- https://doda.dev/ -->

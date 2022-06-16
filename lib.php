@@ -17,6 +17,19 @@ function script($text){
     echo "<script>$text</script>";
 }
 
-function back(){
+function alert($t = "") {
+    !empty($t) && script("alert('$t');");
+}
+
+function go($fileName, $text=''){
+    alert($text);
+    script("location.replace('$fileName'); ");
+}
+function back($text = ''){
+    alert($t);
     script("history.back();");
 }
+
+function ss() {
+    return isset($_SESSION['user']) ? $_SESSION['user'] : false;
+  }
