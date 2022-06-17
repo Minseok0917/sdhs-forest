@@ -7,7 +7,7 @@ class View
     {
         view("home");
     }
-    function profilePage($args) 
+    function profilePage($args)
     {
         loginChk();
         $user_id = $args[1];
@@ -24,9 +24,7 @@ class View
         foreach($list as $i) {
             $i->list_img = $i->list_img === "" ? "" : explode("&", $i->list_img)[0];
         }
-        // echo "<pre>";
-        // var_dump($list);
-        // echo "</pre>";
+        
         view("/list/community", ["chk" => "community", "list" => $list]);
     }
 
