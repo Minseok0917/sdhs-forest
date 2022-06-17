@@ -11,7 +11,10 @@ class Api
         $resultArr = (object)[];
         
         $result = execute("INSERT INTO `heart_tbl` VALUES(?, ?)", [user()->user_id, $list_sn]);
+        $heart = fetch("SELECT COUNT(`user_id`) as `heart_cnt` FROM `heart_tbl` WHERE `list_sn` = ?", [$list_sn]);
+
         $resultArr->msg = "좋아요가 반영되었습니다.";
+        $resultArr->heart_cnt = $heart->heart_cnt;
         
         echo json_encode($resultArr);
     }
@@ -24,8 +27,10 @@ class Api
         $resultArr = (object)[];
         
         $result = execute("DELETE FROM `heart_tbl` WHERE `user_id` = ? AND `list_sn` = ?", [user()->user_id, $list_sn]);
-        
+        $heart = fetch("SELECT COUNT(`user_id`) as `heart_cnt` FROM `heart_tbl` WHERE `list_sn` = ?", [$list_sn]);
+
         $resultArr->msg = "좋아요가 취소되었습니다.";
+        $resultArr->heart_cnt = $heart->heart_cnt;
         
         echo json_encode($resultArr);
     }

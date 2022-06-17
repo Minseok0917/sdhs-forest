@@ -2,7 +2,7 @@
 {
     const article = document.querySelector("article.content-container");
     article.id === "signup" ? signupPage() :
-    article.id === "insertList" ? insertListPage() :
+    article.id === "cuList" ? cuListPage() :
     article.id === "detail" ? detailPage() :
     ""
 }
@@ -35,9 +35,10 @@ function signupPage() {
     imgIpt.addEventListener("change", imgChangeHandle);
 };
 
-function insertListPage() {
+function cuListPage() {
     const form = document.forms[0];
     const photoContent = form.querySelector(".photo-content");
+    const imgDeleteBtn = [...photoContent.querySelectorAll(".photo .img_delete")];
     const addBtn = photoContent.querySelector("button");
 
     const imgChangeHandle = function(){
@@ -47,7 +48,7 @@ function insertListPage() {
             return
         }
     };
-    
+
     const _addButton = function() {
         const ipt = document.createElement("input");
         ipt.type = "file";
@@ -57,7 +58,12 @@ function insertListPage() {
         photoContent.appendChild(ipt);
     };
 
+    const _imgDeletehandle = function() {
+        this.parentElement.remove();
+    };
+    
     addBtn.addEventListener("click", _addButton);
+    imgDeleteBtn.forEach( e => e.addEventListener("click", _imgDeletehandle) );
 };
 
 
@@ -71,17 +77,17 @@ async function detailPage() {
     }
 
     const _likeBtnClick = async function() {
-        const heart = this.querySelector("i");
+        // const heart = this.querySelector("i");
         if(this.classList.contains("active")) {
             // 이미 좋아요 되어있을때
             const data = await fetch(`/deleteHeart/${list_sn}`).then(res => res.json());
             alert(data.msg);
-            heart.className = "fa-regular fa-heart";
+            this.innerHTML = `<i class="fa-regular fa-heart"></i> ${data.heart_cnt}`;
         } else {
             // 좋아요가 안되어있을때
             const data = await fetch(`/addHeart/${list_sn}`).then(res => res.json());
             alert(data.msg);
-            heart.className = "fa-solid fa-heart";
+            this.innerHTML = `<i class="fa-solid fa-heart"></i> ${data.heart_cnt}`;
         }
         this.classList.toggle("active");
     };
