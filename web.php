@@ -2,16 +2,25 @@
 
 
 $get(
+    // view
     "/@View@home",
     "/profile/:id@View@profilePage",
     "/list/community@View@communityPage",
     "/login@View@loginPage",
     "/signup@View@signupPage",
     "/list/insertList@Board@insertList",
-    
     "/listDetail/:sn@Board@listDetail",
 
+    // api
+    "/addHeart/:list_sn@Api@addHeart",
+    "/deleteHeart/:list_sn@Api@deleteHeart",
+    "/checkHeart/:list_sn@Api@checkHeart",
+
+    // logout
     "/logout@User@logout",
+
+    "/updateList/:sn@Board@updateList",
+    "/deleteListPro/:sn@Board@deleteListPro",
 );
 
 $post(
@@ -19,5 +28,6 @@ $post(
     "/loginPro@User@loginPro",
     
     "/insertListPro@Board@insertListPro",
+    "/updateListPro@Board@updateListPro",
 );
 

@@ -19,7 +19,10 @@ class View
     function communityPage()
     {
         loginChk();
-        $list = fetchAll("SELECT `sn`, `list_title`, `list_img`, `owner` FROM `list_tbl`");
+        $list = fetchAll("SELECT lt.sn, lt.list_title, lt.list_img, lt.owner, count(ht.user_id) as `heart_count` FROM `list_tbl` as `lt` LEFT OUTER JOIN `heart_tbl` as `ht` on lt.sn = ht.list_sn GROUP BY `sn`");
+        foreach($list as $i) {
+            $i->list_img = $i->list_img === "" ? "" : explode("&", $i->list_img)[0];
+        }
         // echo "<pre>";
         // var_dump($list);
         // echo "</pre>";

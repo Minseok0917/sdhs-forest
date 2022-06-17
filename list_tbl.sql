@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- 생성 시간: 22-06-15 03:16
+-- 생성 시간: 22-06-17 09:54
 -- 서버 버전: 10.4.24-MariaDB
 -- PHP 버전: 8.1.6
 
@@ -29,22 +29,25 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `list_tbl` (
   `sn` int(11) NOT NULL,
-  `list_title` varchar(100) NOT NULL,
+  `list_title` text NOT NULL,
   `list_content` text NOT NULL,
   `list_img` text NOT NULL,
-  `owner` varchar(100) DEFAULT NULL
+  `owner` text NOT NULL,
+  `list_date` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- 테이블의 덤프 데이터 `list_tbl`
 --
 
-INSERT INTO `list_tbl` (`sn`, `list_title`, `list_content`, `list_img`, `owner`) VALUES
-(1, '첫번째 글', '이글은 2022년 06월 15일 작성된 글 입니다.', '1_1&1_2', 'wnsdn'),
-(2, '두번빼 글', '이글도 2022년 06월 15일 작성되었습니다.', '2_1&2_2', 'wnsdn'),
-(3, '세번째 글', '이글 역시 오늘 작성됨', '', 'wnsdn'),
-(4, '깁급 공지', '내가 여기 짱이다. 다 덤벼 이 시키들아', '', 'admin'),
-(5, '여러분에게 할 중요한 얘기가 있어요...', '어쩔티비', '', 'wnsdn2');
+INSERT INTO `list_tbl` (`sn`, `list_title`, `list_content`, `list_img`, `owner`, `list_date`) VALUES
+(1, '제목1', 'ㄷㅈㄱㅁㄷㄴㄹㅇㅁㄴㄹㅇㅁㄴㄹㅇ', '1_1&1_2', 'wnsdn', '2022-06-16 04:08:16'),
+(3, 'rqwerwqe', 'werqrweqrqw', '', 'wnsdn2', '2022-06-16 06:58:53'),
+(5, 'ewq', 'ewqewqeqw', '', 'wnsdn2', '2022-06-16 07:33:46'),
+(8, 'ㄹㅇㄷㄷ', '223', '8_1', 'wnsdn', '2022-06-17 01:40:50'),
+(9, '제목수정', 'ㄷㄷㄷ', '9_1&9_2&9_3', 'wnsdn', '2022-06-17 01:43:27'),
+(11, 'ㄷㅈㅂㄷㅈ', 'ㄷㅂㅈㄷㅂㅈㄷㅂㅈㄷ', '11_1&11_2', 'wnsdn', '2022-06-17 07:35:18'),
+(12, 'ㄱㄷㅈㄱㄷㅈㅂㄱ33', 'ㄷㅇㅁㅇㄹㄴㅇㄴㅁㄹㅇ', '12_1&12_2', 'wnsdn', '2022-06-17 07:53:25');
 
 --
 -- 덤프된 테이블의 인덱스
@@ -64,7 +67,7 @@ ALTER TABLE `list_tbl`
 -- 테이블의 AUTO_INCREMENT `list_tbl`
 --
 ALTER TABLE `list_tbl`
-  MODIFY `sn` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `sn` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

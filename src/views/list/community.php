@@ -14,16 +14,18 @@
                     <?php foreach($list as $item): ?>
                         <div class="item">
                             <div class="container flex">
-                                <div class="photo">
-                                    <img src="/resource/img/restImg/headerImg.jpg" alt="">
-                                </div>
+                                <?php if($item->list_img !== ""): ?>
+                                    <div class="photo">
+                                        <img src="/resource/img/BoardImg/<?=$item->list_img ?>.jpg" alt="">
+                                    </div>
+                                <?php endif; ?>
                                 <div class="text flex">
                                     <h4 class="title"><?=$item->list_title ?></h4>
                                     <p>Owner: <?=$item->owner ?></p>
                                 </div>
                             </div>
                             <div class="util flex">
-                                <p class="like"><i class="fa-solid fa-heart"></i> 0</p>
+                                <p class="like"><i class="fa-solid fa-heart"></i> <?=$item->heart_count ?></p>
                                 <p class="read"><i class="fa-regular fa-eye"></i> 0</p>
                                 <botton class="btn"><a href="/listDetail/<?=$item->sn ?>">Read more</a></botton>
                             </div>

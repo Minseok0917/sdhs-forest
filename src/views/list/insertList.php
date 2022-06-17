@@ -1,9 +1,9 @@
 
-    <article id="insertList" class="content-container">
+    <article id="cuList" class="content-container">
         <div class="content flex">
             <div class="sub-content">
-                <h3 class="title">Insert List</h3>
-                <form action="/insertListPro" method="post" enctype="multipart/form-data" class="insertForm flex">
+                <h3 class="title">Create List</h3>
+                <form action="/insertListPro" method="post" enctype="multipart/form-data" class="cuForm flex">
                     <input type="hidden" name="owner" value="<?=user()->user_id ?>" />
                     <div class="form_title flex">
                         <h5>title</h5>
