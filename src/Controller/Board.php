@@ -44,7 +44,7 @@ class Board
         view("/list/listDetail", ["chk" => "community", "result" => $result]);
     }
 
-    function deleteListPro($args)
+    function deleteListPro($args) 
     {
         $list_sn = $args[1];
         execute("DELETE FROM `list_tbl` WHERE `sn` = ?", [$list_sn]);
