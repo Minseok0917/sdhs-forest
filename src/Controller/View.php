@@ -7,7 +7,7 @@ class View
     {
         view("home");
     }
-    function profilePage($args)
+    function profilePage($args) 
     {
         loginChk();
         $user_id = $args[1];
