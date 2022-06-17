@@ -52,6 +52,22 @@ class Api
         
         echo json_encode($resultArr);
     }
+
+    function writeList($args) {
+        $id = $args[1];
+        header("HTTP//1.0 200");
+        header("content-type: application/json; charset=utf-8");
+        $resultArr = (object)[];
+
+        $write = fetchAll("SELECT lt.sn, lt.list_title, lt.list_img, lt.owner, count(ht.user_id) as `heart_count` FROM `list_tbl` as `lt` LEFT OUTER JOIN `heart_tbl` as `ht` on lt.sn = ht.list_sn WHERE `owner` = ? GROUP BY `sn`", [$id]);
+        
+        foreach($write as $w) {
+            $w->list_img = $w->list_img === "" ? [] : explode("&", $w->list_img);
+        }
+        $resultArr->listArr = $write;
+
+        echo json_encode($resultArr);
+    }
     
 }
 
