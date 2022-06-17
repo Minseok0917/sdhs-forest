@@ -4,6 +4,7 @@ $get(
     "/@View@index",
     "/signup@View@signup",
     "/login@View@login",
+    "/logout@User@logout",
 );
 
 $post(

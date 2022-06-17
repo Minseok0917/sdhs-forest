@@ -1,7 +1,7 @@
 <form action="/user/signup" method="post" enctype="multipart/form-data">
-    <input type="text" name="name">
-    <input type="text" name="id">
-    <input type="pwd" name="pwd">
-    <input type="file" name="img">
+    <label for="name">이름</label><input type="text" name="name">
+    <label for="id">이름</label><input type="text" name="id">
+    <label for="pwd">이름</label><input type="pwd" name="pwd">
+    <label for="img">이름</label><input type="file" name="img">
     <input type="submit">
-</form>
+</for</m>

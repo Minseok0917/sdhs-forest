@@ -7,8 +7,12 @@
     <link>
 </head>
 <body>
+    <p><a href="/">HOME</a></p>
     <?php if(ss()) :?>    
         <img src="/upload/<?=$_SESSION['user']->profile?>" alt="">
         <h2><?= $_SESSION['user']->name ?></h2>
-    <?php endif;?>
-
+        <p><a href="/logout">로그아웃</a></p>
+    <?php else :?>
+        <p><a href="/login">로그인</a></p>
+        <p><a href="/signup">회원가입</a></p>
+    <?php endif ;?>

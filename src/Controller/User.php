@@ -3,6 +3,11 @@
 namespace src\Controller;
 
 class User{
+
+    function logout(){
+        $_SESSION['user'] = '';
+        go("/", "로그아웃 되었습니다");
+    }
     function signUp(){
         extract($_POST);
         $checkId = fetch("select id from `user_tbl` where id = ?", [$id]); 
