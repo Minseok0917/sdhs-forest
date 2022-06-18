@@ -1,6 +1,5 @@
 <?php
 
-
 $get(
     // view
     "/@View@home",
