@@ -31,22 +31,26 @@
                     </div>
     
                     <div class="write_list list-container flex">
-                        <!-- <div class="item">
-                            <div class="container flex">
-                                    <div class="photo">
-                                        <img src="/resource/img/BoardImg/.jpg" alt="">
+                        <?php foreach($write as $item): ?>
+                            <div class="item">
+                                <div class="container flex">
+                                    <?php if($item->list_img !== ""): ?>
+                                        <div class="photo">
+                                            <img src="/resource/img/BoardImg/<?=$item->list_img ?>.jpg" alt="">
+                                        </div>
+                                    <?php endif; ?>
+                                    <div class="text flex">
+                                        <h4 class="title"><?=$item->list_title ?></h4>
+                                        <p>Owner: <?=$item->owner ?></p>
                                     </div>
-                                <div class="text flex">
-                                    <h4 class="title">title</h4>
-                                    <p>Owner: name</p>
+                                </div>
+                                <div class="util flex">
+                                    <p class="like"><i class="fa-solid fa-heart"></i> <?=$item->heart_count ?></p>
+                                    <p class="read"><i class="fa-regular fa-eye"></i> 0</p>
+                                    <botton class="btn"><a href="/listDetail/<?=$item->sn ?>">Read more</a></botton>
                                 </div>
                             </div>
-                            <div class="util flex">
-                                <p class="like"><i class="fa-solid fa-heart"></i> 0</p>
-                                <p class="read"><i class="fa-regular fa-eye"></i> 0</p>
-                                <botton class="btn"><a href="/listDetail/">Read more</a></botton>
-                            </div>
-                        </div> -->
+                        <?php endforeach; ?>
                     </div>
                     
                     <div class="like_list">

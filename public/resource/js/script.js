@@ -104,32 +104,32 @@ async function profilePage() {
     const wList = document.querySelector(".write_list");
     const lList = document.querySelector(".like_list");
     
-    writeList.listArr.forEach( ele => {
-        const item = document.createElement("div");
-        item.className = "item";
-        item.innerHTML = `
-            <div class="container flex">
-                    <div class="photo">
-                        <img src='/resource/img/BoardImg/${ele.list_img[0]}.jpg' alt=''>
-                    </div>
-                <div class="text flex">
-                    <h4 class="title">${ele.list_title}</h4>
-                    <p>Owner: ${ele.owner}</p>
-                </div>
-            </div>
-            <div class="util flex">
-                <p class="like"><i class="fa-solid fa-heart"></i> ${ele.heart_count}</p>
-                <p class="read"><i class="fa-regular fa-eye"></i> 0</p>
-                <botton class="btn"><a href="/listDetail/${ele.sn}">Read more</a></botton>
-            </div>
-        `;
-        wList.appendChild(item);
+    // writeList.listArr.forEach( ele => {
+    //     const item = document.createElement("div");
+    //     item.className = "item";
+    //     item.innerHTML = `
+    //         <div class="container flex">
+    //                 <div class="photo">
+    //                     <img src='/resource/img/BoardImg/${ele.list_img[0]}.jpg' alt=''>
+    //                 </div>
+    //             <div class="text flex">
+    //                 <h4 class="title">${ele.list_title}</h4>
+    //                 <p>Owner: ${ele.owner}</p>
+    //             </div>
+    //         </div>
+    //         <div class="util flex">
+    //             <p class="like"><i class="fa-solid fa-heart"></i> ${ele.heart_count}</p>
+    //             <p class="read"><i class="fa-regular fa-eye"></i> 0</p>
+    //             <botton class="btn"><a href="/listDetail/${ele.sn}">Read more</a></botton>
+    //         </div>
+    //     `;
+    //     wList.appendChild(item);
         
-    } )
+    // } )
     
 
 
-    console.log(writeList.listArr);
+    // console.log(writeList.listArr);
     
 };
 

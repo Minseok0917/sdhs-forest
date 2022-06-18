@@ -103,6 +103,7 @@ section .content-container .sub-content>.profile .profiles .profile-text{positio
 section .content-container .sub-content>.profile .profiles .profile-text h3{font-size: 25px;}
 section .content-container .sub-content>.profile .profiles .profile-text p{font-size: 20px;}
 section .content-container .sub-content>.profile .profiles .profile-text button{position: absolute; top: 0; right: 20px;}
+section .content-container .sub-content>.profile input[type="radio"]{display: none;}
 
 
 /* 게시글 작성, 수정 페이지 */
