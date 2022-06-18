@@ -103,6 +103,7 @@ section .content-container .sub-content>.profile .profiles .profile-text{positio
 section .content-container .sub-content>.profile .profiles .profile-text h3{font-size: 25px;}
 section .content-container .sub-content>.profile .profiles .profile-text p{font-size: 20px;}
 section .content-container .sub-content>.profile .profiles .profile-text button{position: absolute; top: 0; right: 20px;}
+section .content-container .sub-content>.profile input[type="radio"]{display: none;}
 
 
 /* 게시글 작성, 수정 페이지 */
@@ -143,5 +144,19 @@ section .content-container .sub-content .detail .like .like-btn:hover{background
 section .content-container .sub-content .detail .like .like-btn.active{background: red; color: #fff;}
 section .content-container .sub-content .detail .like button i{color: inherit;}
 
+
+
+
+
+section .content-container .sub-content>.profile .list-container{width: 80%; margin: 0 auto; flex-direction: column; gap: 40px;}
+section .content-container .sub-content>.profile .list-container .item{position: relative; width: 100%; border: 3px solid #fff; cursor: pointer; border-radius: 20px; transition: all .3s; box-shadow: 0px 0px 5px #aaa;}
+section .content-container .sub-content>.profile .list-container .item:hover{border-color: rgb(138, 192, 115); transform: scale(1.02);}
+section .content-container .sub-content>.profile .list-container .item .container{width: 90%; margin: 0 auto; padding: 25px 0; align-items: center; gap: 70px;}
+section .content-container .sub-content>.profile .list-container .item .container .text{height: 120px; flex-direction: column; gap: 15px;}
+section .content-container .sub-content>.profile .list-container .item .container .text h4.title{font-size: 25px; opacity: .9;}
+section .content-container .sub-content>.profile .list-container .item .container .text p{font-size: 20px; opacity: .7;}
+section .content-container .sub-content>.profile .list-container .item .container .photo{width: 130px; height: 130px}
+section .content-container .sub-content>.profile .list-container .item .util{position: absolute; bottom: 20px; right: 35px; gap: 20px; align-items: center;}
+section .content-container .sub-content>.profile .list-container .item .util p{font-size: 20px;}
 
 

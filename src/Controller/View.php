@@ -12,8 +12,18 @@ class View
         loginChk();
         $user_id = $args[1];
         $user = fetch("SELECT `user_id`, `user_name`, `profile_img` FROM `user_tbl` WHERE `user_id` = ?", [$user_id]);
+        $write = fetchAll("SELECT lt.sn, lt.list_title, lt.list_img, lt.owner, count(ht.user_id) as `heart_count` FROM `list_tbl` as `lt` LEFT OUTER JOIN `heart_tbl` as `ht` on lt.sn = ht.list_sn WHERE `owner` = ? GROUP BY `sn`", [$user_id]);
+        foreach($write as $w) {
+            $w->list_img = $w->list_img === "" ? "" : explode("&", $w->list_img)[0];
+        }
 
-        view("/user/profile", ["chk" => "profile", "thisUser" => $user]);
+        // 좋아요한 글 쿼리문 짜야 됨
+
+        // echo "<pre>";
+        // var_dump($write);
+        // echo "</pre>";
+
+        view("/user/profile", ["chk" => "profile", "thisUser" => $user, "write" => $write]);
     }
     
     function communityPage()
@@ -23,9 +33,7 @@ class View
         foreach($list as $i) {
             $i->list_img = $i->list_img === "" ? "" : explode("&", $i->list_img)[0];
         }
-        // echo "<pre>";
-        // var_dump($list);
-        // echo "</pre>";
+        
         view("/list/community", ["chk" => "community", "list" => $list]);
     }
 

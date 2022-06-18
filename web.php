@@ -15,6 +15,7 @@ $get(
     "/addHeart/:list_sn@Api@addHeart",
     "/deleteHeart/:list_sn@Api@deleteHeart",
     "/checkHeart/:list_sn@Api@checkHeart",
+    "/writeList/:id@Api@writeList",
 
     // logout
     "/logout@User@logout",
@@ -30,4 +31,3 @@ $post(
     "/insertListPro@Board@insertListPro",
     "/updateListPro@Board@updateListPro",
 );
-
