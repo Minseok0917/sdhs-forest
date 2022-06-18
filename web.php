@@ -1,5 +1,6 @@
 <?php
 
+
 $get(
     // view
     "/@View@home",
@@ -30,4 +31,3 @@ $post(
     "/insertListPro@Board@insertListPro",
     "/updateListPro@Board@updateListPro",
 );
-
