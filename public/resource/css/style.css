@@ -105,6 +105,15 @@ section .content-container .sub-content>.profile .profiles .profile-text p{font-
 section .content-container .sub-content>.profile .profiles .profile-text button{position: absolute; top: 0; right: 20px;}
 section .content-container .sub-content>.profile input[type="radio"]{display: none;}
 
+section .content-container .sub-content>.profile .labels{width: 90%; line-height: 50px; margin: 0 auto;}
+section .content-container .sub-content>.profile .labels label{flex: 1; display: block; text-align: center; font-size: 17px; cursor: pointer; border: 2px solid #75a760;}
+
+section .content-container .sub-content>.profile .list-container{display: none;}
+section .content-container .sub-content>.profile input#write_list:checked~ .write_list{display: flex !important;}
+section .content-container .sub-content>.profile input#like_list:checked~ .like_list{display: flex !important;}
+section .content-container .sub-content>.profile input#write_list:checked~ .labels label[for="write_list"]{background: #75a760; color: #fff;}
+section .content-container .sub-content>.profile input#like_list:checked~ .labels label[for="like_list"]{background: #75a760; color: #fff;}
+
 
 /* 게시글 작성, 수정 페이지 */
 section .content-container .sub-content>h3.title{font-size: 35px;}
