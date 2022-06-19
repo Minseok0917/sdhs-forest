@@ -23,14 +23,16 @@
                             <?php endif; ?>
                         </div>
                     </div>
+
                     <input type="radio" name="profile_tab" id="write_list" checked>
                     <input type="radio" name="profile_tab" id="like_list">
-                    <div class="labels">
+
+                    <div class="labels flex">
                         <label for="write_list">작성한 게시글 보기</label>
                         <label for="like_list">좋아요한 게시글 보기</label>
                     </div>
     
-                    <div class="write_list list-container flex">
+                    <div class="write_list list-container">
                         <?php foreach($write as $item): ?>
                             <div class="item">
                                 <div class="container flex">
@@ -53,8 +55,27 @@
                         <?php endforeach; ?>
                     </div>
                     
-                    <div class="like_list">
-    
+                    <div class="like_list list-container">
+                        <?php foreach($like as $item): ?>
+                            <div class="item">
+                                <div class="container flex">
+                                    <?php if($item->list_img !== ""): ?>
+                                        <div class="photo">
+                                            <img src="/resource/img/BoardImg/<?=$item->list_img ?>.jpg" alt="">
+                                        </div>
+                                    <?php endif; ?>
+                                    <div class="text flex">
+                                        <h4 class="title"><?=$item->list_title ?></h4>
+                                        <p>Owner: <?=$item->owner ?></p>
+                                    </div>
+                                </div>
+                                <div class="util flex">
+                                    <p class="like"><i class="fa-solid fa-heart"></i> <?=$item->heart_count ?></p>
+                                    <p class="read"><i class="fa-regular fa-eye"></i> 0</p>
+                                    <botton class="btn"><a href="/listDetail/<?=$item->sn ?>">Read more</a></botton>
+                                </div>
+                            </div>
+                        <?php endforeach; ?>  
                     </div>
                 </div>
             </div>
