@@ -38,9 +38,38 @@
                             <i class="fa-regular fa-heart"></i> <?=$result->heart_cnt ?>
                         </button>
                     </div>
-                </div>
-                <div class="comments">
-                    
+                    <div class="comments">
+                        <?php foreach($comments as $comm): ?>
+                            <div class="comment flex">
+                                <div class="c_photo">
+                                    <img src="/resource/img/profile/<?=$comm->profile_img ?>.jpg" alt="">
+                                </div>
+                                <div class="text flex">
+                                    <p class="owner"><?=$comm->owner ?> <span class="date"><?=$comm->comments_date ?></span></p>
+                                    <div class="content flex">
+                                        <p><?=$comm->comments ?></p>
+                                        <button class="add_comment2 btn" data-sn="<?=$comm->sn ?>">댓글달기</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <?php foreach($comments2 as $comm2): ?>
+                                <?php if($comm2->parent_sn === $comm->sn): ?>
+                                    <div class="sub_comment comment flex">
+                                        <div class="c_photo">
+                                            <img src="/resource/img/profile/<?=$comm2->profile_img ?>.jpg" alt="">
+                                        </div>
+                                        <div class="text flex">
+                                            <p class="owner"><?=$comm2->owner ?> <span class="date"><?=$comm2->comments_date ?></span></p>
+                                            <div class="content flex">
+                                                <p><?=$comm2->comments ?></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                <?php endif; ?>
+                            <?php endforeach; ?>
+                        <?php endforeach; ?>
+                    </div>
+                    <button class="add_comment btn">댓글달기</button>
                 </div>
             </div>
         </div>

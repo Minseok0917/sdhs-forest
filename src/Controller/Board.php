@@ -40,8 +40,15 @@ class Board
 
         $result = fetch($sql, [$sn]);
         $result->list_img = $result->list_img === "" ? [] : explode("&", $result->list_img);
+
+        $comments = fetchAll("SELECT ct.sn, ct.list_sn, ct.owner, ct.deep, ct.comments, ct.comments_date, ct.parent_sn, ut.profile_img FROM `comments_tbl` as `ct` LEFT OUTER JOIN `user_tbl` as `ut` on ct.owner = ut.user_id WHERE ct.parent_sn is null AND `list_sn` = ?", [$sn]);
+        $comments2 = fetchAll("SELECT ct.sn, ct.list_sn, ct.owner, ct.deep, ct.comments, ct.comments_date, ct.parent_sn, ut.profile_img FROM `comments_tbl` as `ct` LEFT OUTER JOIN `user_tbl` as `ut` on ct.owner = ut.user_id WHERE ct.parent_sn is not null AND `list_sn` = ?", [$sn]);
+
+        // echo "<pre>";
+        // var_dump($comments2);
+        // echo "</pre>";
     
-        view("/list/listDetail", ["chk" => "community", "result" => $result]);
+        view("/list/listDetail", ["chk" => "community", "result" => $result, "comments" => $comments, "comments2" => $comments2]);
     }
 
     function deleteListPro($args) 
@@ -99,10 +106,3 @@ class Board
     }
 
 }
-
-
-
-
-
-
-

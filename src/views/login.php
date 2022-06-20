@@ -9,7 +9,7 @@
                     <label for="id">User ID</label>
                 </div>
                 <div class="form-content">
-                    <input type="text" name="pass" required>
+                    <input type="password" name="pass" required>
                     <label for="id">Password</label>
                 </div>
                 <input type="submit" value="Login">

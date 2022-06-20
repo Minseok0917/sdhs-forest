@@ -30,4 +30,7 @@ $post(
     
     "/insertListPro@Board@insertListPro",
     "/updateListPro@Board@updateListPro",
+
+    "/addComment/:sn@Comment@addComment",
+    "/addComment2/:list_sn/:comm_sn@Comment@addComment2",
 );

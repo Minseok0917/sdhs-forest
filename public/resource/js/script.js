@@ -94,42 +94,39 @@ async function detailPage() {
     };
 
     likeBtn.addEventListener("click", _likeBtnClick);
+
+    const comments = document.querySelector(".comments");
+    const addCommBtn = document.querySelector(".add_comment");
+    const addCommBtn2 = [...document.querySelectorAll(".add_comment2")];
+
+    const _addCommentHandle = function(url) {
+        comments.querySelector("form") ? comments.querySelector("form").remove() : "";
+
+        const form = document.createElement("form");
+        form.className = "comment_form flex";
+        form.action = url;
+        form.method = "post";
+        form.innerHTML = `
+            <input type="text" name="comment" class="content" placeholder="댓글내용을 입력해주세요.." required>
+            <div class="btns flex">
+                <button type="button" class="can_btn btn">취소</button>
+                <input class="btn" type="submit" value="전송" />
+            </div>
+        `;
+        comments.appendChild(form);
+
+        form.querySelector("button.can_btn").addEventListener("click", function() { this.closest("form").remove() } );
+    };
+
+    addCommBtn.addEventListener("click", ()=>_addCommentHandle(`/addComment/${list_sn}`));
+    addCommBtn2.forEach( e => e.addEventListener("click", (e)=>_addCommentHandle(`/addComment2/${list_sn}/${e.target.dataset.sn}`) ));
 }
 
 async function profilePage() {
-    // console.log(1);
     const id = document.querySelector(".profile-text #user_id").textContent;
     const writeList = await fetch(`/writeList/${id}`).then(res => res.json());
     
-    const wList = document.querySelector(".write_list");
-    const lList = document.querySelector(".like_list");
-    
-    // writeList.listArr.forEach( ele => {
-    //     const item = document.createElement("div");
-    //     item.className = "item";
-    //     item.innerHTML = `
-    //         <div class="container flex">
-    //                 <div class="photo">
-    //                     <img src='/resource/img/BoardImg/${ele.list_img[0]}.jpg' alt=''>
-    //                 </div>
-    //             <div class="text flex">
-    //                 <h4 class="title">${ele.list_title}</h4>
-    //                 <p>Owner: ${ele.owner}</p>
-    //             </div>
-    //         </div>
-    //         <div class="util flex">
-    //             <p class="like"><i class="fa-solid fa-heart"></i> ${ele.heart_count}</p>
-    //             <p class="read"><i class="fa-regular fa-eye"></i> 0</p>
-    //             <botton class="btn"><a href="/listDetail/${ele.sn}">Read more</a></botton>
-    //         </div>
-    //     `;
-    //     wList.appendChild(item);
-        
-    // } )
-    
-
-
-    // console.log(writeList.listArr);
+   
     
 };
 
