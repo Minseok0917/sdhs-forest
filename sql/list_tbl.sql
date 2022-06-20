@@ -40,15 +40,6 @@ CREATE TABLE `list_tbl` (
 -- 테이블의 덤프 데이터 `list_tbl`
 --
 
-INSERT INTO `list_tbl` (`sn`, `list_title`, `list_content`, `list_img`, `owner`, `list_date`) VALUES
-(1, '제목1', 'ㄷㅈㄱㅁㄷㄴㄹㅇㅁㄴㄹㅇㅁㄴㄹㅇ', '1_1&1_2', 'wnsdn', '2022-06-16 04:08:16'),
-(3, 'rqwerwqe', 'werqrweqrqw', '', 'wnsdn2', '2022-06-16 06:58:53'),
-(5, 'ewq', 'ewqewqeqw', '', 'wnsdn2', '2022-06-16 07:33:46'),
-(8, 'ㄹㅇㄷㄷ', '223', '8_1', 'wnsdn', '2022-06-17 01:40:50'),
-(9, '제목수정', 'ㄷㄷㄷ', '9_1&9_2&9_3', 'wnsdn', '2022-06-17 01:43:27'),
-(11, 'ㄷㅈㅂㄷㅈ', 'ㄷㅂㅈㄷㅂㅈㄷㅂㅈㄷ', '11_1&11_2', 'wnsdn', '2022-06-17 07:35:18'),
-(12, 'ㄱㄷㅈㄱㄷㅈㅂㄱ33', 'ㄷㅇㅁㅇㄹㄴㅇㄴㅁㄹㅇ', '12_1&12_2', 'wnsdn', '2022-06-17 07:53:25');
-
 --
 -- 덤프된 테이블의 인덱스
 --
@@ -67,7 +58,7 @@ ALTER TABLE `list_tbl`
 -- 테이블의 AUTO_INCREMENT `list_tbl`
 --
 ALTER TABLE `list_tbl`
-  MODIFY `sn` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `sn` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
