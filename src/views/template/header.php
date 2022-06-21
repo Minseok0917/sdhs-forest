@@ -22,7 +22,7 @@
                     <nav class="menu">
                         <ul class="flex">
                             <li class="<?=$chk == "community" ? "active" : "" ?>" >
-                                <a href="/list/community"><i class="fa-solid fa-bullhorn"></i>COMMUNITY</a>
+                                <a href="/community"><i class="fa-solid fa-bullhorn"></i>COMMUNITY</a>
                             </li>
                             <?php if(!user()): ?>
                                 <li class="<?=$chk == "login" ? "active" : "" ?>" >
@@ -32,9 +32,15 @@
                                     <a href="/signup"><i class="fa-solid fa-user-plus"></i>Sign Up</a>
                                 </li>
                             <?php else: ?> 
-                                <li class="<?=$chk == "profile" ? "active" : "" ?>" >
-                                    <a href="/profile/<?=user()->user_id ?>"><i class="fa-solid fa-address-card"></i>PROFILE</a>
-                                </li>
+                                <?php if(user()->user_id === "admin"): ?>
+                                    <li class="<?=$chk == "userlist" ? "active" : "" ?>" >
+                                        <a href="/userList"><i class="fa-solid fa-address-card"></i>USER LIST</a>
+                                    </li>
+                                <?php else: ?>
+                                    <li class="<?=$chk == "profile" ? "active" : "" ?>" >
+                                        <a href="/profile/<?=user()->user_id ?>"><i class="fa-solid fa-address-card"></i>PROFILE</a>
+                                    </li>
+                                <?php endif; ?>
                             <?php endif; ?> 
                         </ul>
                     </nav>
