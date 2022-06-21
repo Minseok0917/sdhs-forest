@@ -13,6 +13,7 @@
                         </a>
                         <?php if(user()->user_id === $result->owner): ?>
                             <div class="btns">
+                                <button class="btn" onclick="location.replace('/statusList/<?=$result->sn ?>')">게시글 통계 보기</button>
                                 <button class="btn" onclick="location.replace('/updateList/<?=$result->sn ?>')">수정하기</button>
                                 <button class="btn" onclick="location.replace('/deleteListPro/<?=$result->sn ?>')">삭제하기</button>
                             </div>

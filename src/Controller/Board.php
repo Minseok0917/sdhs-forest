@@ -3,11 +3,6 @@ namespace src\Controller;
 
 class Board
 {
-    function insertList()
-    {
-        view("/list/insertList", ["chk" => "community"]);
-    }
-
     function insertListPro() 
     {
         [$list_title, $list_content, $owner] = post("list_title", "list_content", "owner");
@@ -27,7 +22,7 @@ class Board
 
         execute("INSERT INTO `list_tbl`(`list_title`, `list_content`, `list_img`, `owner`) VALUES(?, ?, ?, ?)", [$list_title, $list_content, $resultText, $owner]);
 
-        move("/list/community", "글이 작성되었습니다.");
+        move("/community", "글이 작성되었습니다.");
     }
 
     function listDetail($args) 
@@ -44,9 +39,6 @@ class Board
         $comments = fetchAll("SELECT ct.sn, ct.list_sn, ct.owner, ct.deep, ct.comments, ct.comments_date, ct.parent_sn, ut.profile_img FROM `comments_tbl` as `ct` LEFT OUTER JOIN `user_tbl` as `ut` on ct.owner = ut.user_id WHERE ct.parent_sn is null AND `list_sn` = ?", [$sn]);
         $comments2 = fetchAll("SELECT ct.sn, ct.list_sn, ct.owner, ct.deep, ct.comments, ct.comments_date, ct.parent_sn, ut.profile_img FROM `comments_tbl` as `ct` LEFT OUTER JOIN `user_tbl` as `ut` on ct.owner = ut.user_id WHERE ct.parent_sn is not null AND `list_sn` = ?", [$sn]);
 
-        // if()
-        // execute("INSERT INTO `hits_tbl` VALUES (13, 1, ?) ", [date("Y-m-d")]);
-        
         $date = date("Y-m-d");
         // $date = "2022-06-01";
         $hit_data = fetch("SELECT * FROM `hits_tbl` WHERE `hit_date` = ? AND `list_sn` = ?", [$date, $sn]);
@@ -59,15 +51,6 @@ class Board
             // 해당 날짜의 데이터 값이 없을때
             execute("INSERT INTO `hits_tbl` VALUES (?, ?, ?)", [$sn, 1, date("Y-m-d")]);
         }
-        // echo "<pre>";
-        // // var_dump($hit);
-
-        // // foreach($hit as $h) {
-        // //     var_dump(substr($h->hit_date, 0, 10) === date("Y-m-d"));
-        // //     // var_dump();
-        // // }
-        // echo "</pre>";
-
     
         view("/list/listDetail", ["chk" => "community", "result" => $result, "comments" => $comments, "comments2" => $comments2]);
     }
@@ -77,7 +60,7 @@ class Board
         $list_sn = $args[1];
         execute("DELETE FROM `list_tbl` WHERE `sn` = ?", [$list_sn]);
 
-        move("/list/community", "게시글이 삭제되었습니다.");
+        move("/community", "게시글이 삭제되었습니다.");
     }
 
     function updateList($args)
@@ -123,7 +106,7 @@ class Board
         
         execute("UPDATE `list_tbl` SET `list_title`=?,`list_content`=?,`list_img`=? WHERE `sn` = ?", [$list_title, $list_content, $resultText, $sn]);
 
-        move("/list/community", "게시글이 수정되었습니다.");
+        move("/community", "게시글이 수정되었습니다.");
     }
 
 }

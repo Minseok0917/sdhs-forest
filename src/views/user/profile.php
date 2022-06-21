@@ -19,7 +19,7 @@
                                 <p><?=$thisUser->user_name ?></p>
                             </div>
                             <?php if($thisUser->user_name === user()->user_name): ?>
-                                <button class="btn"><a href="/list/insertList">Create more</a></button>
+                                <button class="btn"><a href="/insertList">Create more</a></button>
                             <?php endif; ?>
                         </div>
                     </div>
@@ -48,7 +48,7 @@
                                 </div>
                                 <div class="util flex">
                                     <p class="like"><i class="fa-solid fa-heart"></i> <?=$item->heart_count ?></p>
-                                    <p class="read"><i class="fa-regular fa-eye"></i> 0</p>
+                                    <p class="read"><i class="fa-regular fa-eye"></i> <?=$item->hit_count ?></p>
                                     <botton class="btn"><a href="/listDetail/<?=$item->sn ?>">Read more</a></botton>
                                 </div>
                             </div>
@@ -71,7 +71,7 @@
                                 </div>
                                 <div class="util flex">
                                     <p class="like"><i class="fa-solid fa-heart"></i> <?=$item->heart_count ?></p>
-                                    <p class="read"><i class="fa-regular fa-eye"></i> 0</p>
+                                    <p class="read"><i class="fa-regular fa-eye"></i> <?=$item->hit_count ?></p>
                                     <botton class="btn"><a href="/listDetail/<?=$item->sn ?>">Read more</a></botton>
                                 </div>
                             </div>
