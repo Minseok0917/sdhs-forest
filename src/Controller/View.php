@@ -27,12 +27,14 @@ class View
     function communityPage()
     {
         loginChk();
-        $list = fetchAll("SELECT lt.sn, lt.list_title, lt.list_img, lt.owner, count(ht.user_id) as `heart_count` FROM `list_tbl` as `lt` LEFT OUTER JOIN `heart_tbl` as `ht` on lt.sn = ht.list_sn GROUP BY `sn`");
+        $list = fetchAll("SELECT lt.sn, lt.list_title, lt.list_img, lt.owner, count(ht.user_id) as `heart_count` FROM `list_tbl` as `lt` LEFT OUTER JOIN `heart_tbl` as `ht` on lt.sn = ht.list_sn GROUP BY `sn` order by `sn` desc");
+        $hit = fetchAll("SELECT lt.sn, ifnull(sum(hit.count), 0) as `hit_count` FROM `list_tbl` as `lt` LEFT OUTER JOIN `hits_tbl` as `hit` on lt.sn = hit.list_sn GROUP BY lt.sn ORDER BY lt.sn desc");
+
         foreach($list as $i) {
             $i->list_img = $i->list_img === "" ? "" : explode("&", $i->list_img)[0];
         }
         
-        view("/list/community", ["chk" => "community", "list" => $list]);
+        view("/list/community", ["chk" => "community", "list" => $list, "hit" => $hit]);
     }
 
     function loginPage()

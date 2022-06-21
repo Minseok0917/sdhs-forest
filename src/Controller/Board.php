@@ -44,9 +44,30 @@ class Board
         $comments = fetchAll("SELECT ct.sn, ct.list_sn, ct.owner, ct.deep, ct.comments, ct.comments_date, ct.parent_sn, ut.profile_img FROM `comments_tbl` as `ct` LEFT OUTER JOIN `user_tbl` as `ut` on ct.owner = ut.user_id WHERE ct.parent_sn is null AND `list_sn` = ?", [$sn]);
         $comments2 = fetchAll("SELECT ct.sn, ct.list_sn, ct.owner, ct.deep, ct.comments, ct.comments_date, ct.parent_sn, ut.profile_img FROM `comments_tbl` as `ct` LEFT OUTER JOIN `user_tbl` as `ut` on ct.owner = ut.user_id WHERE ct.parent_sn is not null AND `list_sn` = ?", [$sn]);
 
+        // if()
+        // execute("INSERT INTO `hits_tbl` VALUES (13, 1, ?) ", [date("Y-m-d")]);
+        
+        $date = date("Y-m-d");
+        // $date = "2022-06-01";
+        $hit_data = fetch("SELECT * FROM `hits_tbl` WHERE `hit_date` = ? AND `list_sn` = ?", [$date, $sn]);
+        // execute("INSERT INTO `hits_tbl` VALUES (?, ?, ?)", [13, 5, "2022-06-01"]);
+
+        if($hit_data) {
+            // 해당 날짜의 데이터 값이 이미 있을때
+            execute("UPDATE `hits_tbl` set `count` = ? WHERE `hit_date` = ? AND `list_sn` = ?", [$hit_data->count+1, $date ,$sn]);
+        } else {
+            // 해당 날짜의 데이터 값이 없을때
+            execute("INSERT INTO `hits_tbl` VALUES (?, ?, ?)", [$sn, 1, date("Y-m-d")]);
+        }
         // echo "<pre>";
-        // var_dump($comments2);
+        // // var_dump($hit);
+
+        // // foreach($hit as $h) {
+        // //     var_dump(substr($h->hit_date, 0, 10) === date("Y-m-d"));
+        // //     // var_dump();
+        // // }
         // echo "</pre>";
+
     
         view("/list/listDetail", ["chk" => "community", "result" => $result, "comments" => $comments, "comments2" => $comments2]);
     }
