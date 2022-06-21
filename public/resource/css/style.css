@@ -181,10 +181,21 @@ section .content-container .sub-content>.profile .list-container .item .util p{f
 
 
 /* 유저 통계 리스트 */
-section .content-container .sub-content>.status{width: 90%; margin: 0 auto;}
-section .content-container .sub-content>.status>h3.title{font-size: 40px; margin: 20px 0;}
-section .content-container .sub-content>.status table{width: 100%; border-collapse: collapse; text-align: center;}
-section .content-container .sub-content>.status table tr{border: 1px solid #333; border-left: none; border-right: none; font-size: 20px;}
-section .content-container .sub-content>.status table th{line-height: 45px;}
-section .content-container .sub-content>.status table td{padding: 10px 0;}
-section .content-container .sub-content>.status table .photo{width: 80px; height: 80px; margin: 0 auto; border-radius: 10px; overflow: hidden;}
+section .content-container .sub-content>.user-status{width: 90%; margin: 0 auto;}
+section .content-container .sub-content>.user-status>h3.title{font-size: 40px; margin: 20px 0;}
+section .content-container .sub-content>.user-status table{width: 100%; border-collapse: collapse; text-align: center;}
+section .content-container .sub-content>.user-status table tr{border: 1px solid #333; border-left: none; border-right: none; font-size: 20px;}
+section .content-container .sub-content>.user-status table th{line-height: 45px;}
+section .content-container .sub-content>.user-status table td{padding: 10px 0;}
+section .content-container .sub-content>.user-status table .photo{width: 80px; height: 80px; margin: 0 auto; border-radius: 10px; overflow: hidden;}
+
+
+/* 게시글 통계 페이지 */
+section .content-container .sub-content>.list-status{width: 90%; margin: 10px auto;}
+section .content-container .sub-content>.list-status>h3.title{font-size: 35px;}
+section .content-container .sub-content>.list-status .counts{width: 100%; margin: 60px 0;}
+section .content-container .sub-content>.list-status .counts>div{flex: 1; justify-content: center; align-items: center; font-size: 20px; gap: 15px;}
+
+
+
+

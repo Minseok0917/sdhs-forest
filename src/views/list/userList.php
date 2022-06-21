@@ -1,7 +1,7 @@
     <article id="community" class="content-container">
         <div class="content flex">
             <div class="sub-content flex">
-                <div class="status">
+                <div class="user-status">
                     <h3 class="title">유저 통계 리스트</h3>
                     <table>
                         <thead>
