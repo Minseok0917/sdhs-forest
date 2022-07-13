@@ -1,6 +1,5 @@
 <?php
 
-
 $get(
     // view
     "/@View@home",
@@ -23,7 +22,6 @@ $get(
 
     "/updateList/:sn@Board@updateList",
     "/deleteListPro/:sn@Board@deleteListPro",
-
 
     "/userList@View@userList",
 );
