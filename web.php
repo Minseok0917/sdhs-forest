@@ -1,6 +1,5 @@
 <?php
 
-
 $get(
     // view
     "/@View@home",
@@ -16,14 +15,13 @@ $get(
     "/addHeart/:list_sn@Api@addHeart",
     "/deleteHeart/:list_sn@Api@deleteHeart",
     "/checkHeart/:list_sn@Api@checkHeart",
-    "/writeList/:id@Api@writeList",
+    "/addWeekData/:list_sn@Api@addWeekData",
 
     // 로그아웃
     "/logout@User@logout",
 
     "/updateList/:sn@Board@updateList",
     "/deleteListPro/:sn@Board@deleteListPro",
-
 
     "/userList@View@userList",
 );

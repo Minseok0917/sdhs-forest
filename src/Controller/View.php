@@ -85,11 +85,6 @@ class View
         $acc_count = fetch("SELECT `list_sn`, sum(`count`) as `acc_count` FROM `hits_tbl` WHERE `list_sn` = ? group by `list_sn`", [$list_sn]);
         $day_count = fetch("SELECT `list_sn`, sum(`count`) as `day_count` FROM `hits_tbl` WHERE `list_sn` = ? AND `hit_date` = ?", [$list_sn, date("Y-m-d")]);
 
-        // echo "<pre>";
-        // var_dump($acc_count);
-        // var_dump($day_count);
-        // echo "</pre>";
-
         view("/list/statusList", ["chk" => "community", "acc_count" => $acc_count, "day_count" => $day_count]);
     }
     

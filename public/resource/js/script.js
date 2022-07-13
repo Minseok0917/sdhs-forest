@@ -5,6 +5,7 @@
     article.id === "cuList" ? cuListPage() :
     article.id === "detail" ? detailPage() :
     article.id === "profile" ? profilePage() :
+    article.id === "statusList" ? statusListPage() :
     ""
 }
 
@@ -122,11 +123,68 @@ async function detailPage() {
     addCommBtn2.forEach( e => e.addEventListener("click", (e)=>_addCommentHandle(`/addComment2/${list_sn}/${e.target.dataset.sn}`) ));
 }
 
-async function profilePage() {
-    const id = document.querySelector(".profile-text #user_id").textContent;
-    const writeList = await fetch(`/writeList/${id}`).then(res => res.json());
+async function statusListPage() {
+    const canvas = document.querySelector(".graph>canvas");
+    const ctx = canvas.getContext('2d');
     
-   
+    const canvasWidth = 1300;
+    const canvasHeight = 500;
+    canvas.width = canvasWidth;
+    canvas.height = canvasHeight;
     
-};
+    const weekData = await fetch(`/addWeekData/${canvas.dataset.sn}`).then(res => res.json());
 
+    console.log(weekData);
+    const render = () => {
+        const length = weekData.length;
+        const limit = 10;
+        const [pl, pr, pt, pb] = [50, 10, 30, 60];
+        const maxHeight = canvasHeight-pt-pb;
+        let maxValue = Math.max(...weekData.map( ({count}) => count ));
+        maxValue = Math.ceil(maxValue/limit)*limit;
+        const rowCount = Math.round(maxValue/limit);
+        const rowLimit = maxHeight/rowCount;
+        const p = maxHeight/maxValue;
+
+        for(let i=0; i<=rowCount; i++) {
+            const y = maxHeight+pt-(i*rowLimit);
+            
+            ctx.font = "17px minSans";
+            ctx.beginPath();
+            ctx.fillStyle = "#eee";
+            ctx.fillRect(pl, y, canvasWidth-pl-pr, 1);
+            ctx.fill();
+
+            ctx.textAlign = "right";
+            ctx.fillStyle = "#777";
+            ctx.fillText(limit*i, pl-10, y+5);
+        }
+
+        const width = 80;
+        const px = 30;
+        const maxWidth = canvasWidth-pl-pr-px*2;
+        const gap = (maxWidth-width*length)/(length-1);
+
+        weekData.forEach(({ date, count }, idx) => {
+            const x = pl+px+(width*idx)+(gap*idx);
+            const y = pt+maxHeight-(p*count);
+            const height = p*count;
+
+            ctx.beginPath();
+            ctx.fillStyle = "#888";
+            ctx.fillRect(x, y, width, height);
+            ctx.fill();
+
+            ctx.font = "20px minSans";
+            ctx.textAlign = "center";
+            ctx.fillStyle = "blue";
+            ctx.fillText(date, x+(width/2), pt+maxHeight+pb/2);
+
+            ctx.fillStyle = "red";
+            ctx.fillText(count, x+(width/2), y-10);
+        });
+
+    };
+
+    render();
+};

@@ -37,9 +37,9 @@ class Api
 
     function checkHeart($args)
     {
-        $list_sn = $args[1];
         header("HTTP/1.1 200 OK");
         header("Content-Type: application/json; charset=UTF-8");
+        $list_sn = $args[1];
         $resultArr = (object)[];
         
         $result = fetch("SELECT * FROM `heart_tbl` WHERE `user_id` = ? AND `list_sn` = ?", [user()->user_id, $list_sn]);
@@ -53,20 +53,23 @@ class Api
         echo json_encode($resultArr);
     }
 
-    function writeList($args) {
-        $id = $args[1];
-        header("HTTP//1.0 200");
-        header("content-type: application/json; charset=utf-8");
-        $resultArr = (object)[];
+    function addWeekData($args)
+    {
+        header("HTTP/1.1 200 OK");
+        header("Content-Type: application/json; charset=UTF-8");
+        $list_sn = $args[1];
+        $week_data = [];
 
-        $write = fetchAll("SELECT lt.sn, lt.list_title, lt.list_img, lt.owner, count(ht.user_id) as `heart_count` FROM `list_tbl` as `lt` LEFT OUTER JOIN `heart_tbl` as `ht` on lt.sn = ht.list_sn WHERE `owner` = ? GROUP BY `sn`", [$id]);
-        
-        foreach($write as $w) {
-            $w->list_img = $w->list_img === "" ? [] : explode("&", $w->list_img);
+        for($i = 6; $i>=0; $i--) {
+            $date = date("Y-m-d", strtotime(date("Y-m-d")." -$i day "));
+            $result = fetch("SELECT * FROM `hits_tbl` WHERE `hit_date` = ? AND `list_sn` = ?", [$date, $list_sn]);
+            $returnData = (object)[];
+            $returnData->date = $date;
+            $returnData->count = isset($result->count) ? $result->count : 0;
+            array_push($week_data, $returnData);
         }
-        $resultArr->listArr = $write;
-
-        echo json_encode($resultArr);
+        
+        echo json_encode($week_data);
     }
     
 }
