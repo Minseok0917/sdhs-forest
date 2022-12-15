@@ -1,4 +1,4 @@
-    <article id="community" class="content-container">
+    <article id="userList" class="content-container">
         <div class="content flex">
             <div class="sub-content flex">
                 <div class="user-status">

@@ -1,6 +1,5 @@
 <?php
 
-
 spl_autoload_register(function($f) {
     require_once("../{$f}.php");
 });
