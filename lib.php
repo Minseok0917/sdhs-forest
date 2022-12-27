@@ -10,3 +10,27 @@ function view($fileName, $d = []) {
     require "src/View/$fileName.php";
     require "src/View/footer.php";
 }
+
+function ss() {
+    return $_SESSION['user'] ?? false;
+}
+
+function script($s) {
+    echo "<script>$s</script>";
+}
+
+function alert($t = "") {
+    !empty($t) && script("alert('$t');");
+}
+
+function move($tg, $t = '') {
+    alert($t);
+    script("location.replace('$tg')");
+    exit;
+}
+
+function back($t = '') {
+    alert($t);
+    script("history.back()");
+    exit;
+}
