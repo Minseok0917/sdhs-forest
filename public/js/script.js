@@ -1,0 +1,1 @@
+const mainId = document.querySelector('main').id;

@@ -11,8 +11,13 @@ class DB {
 
 function query($sql, $data = []) {
     $q = DB::get()->prepare($sql);
-    $q->execute($data);
-    return $q;
+    try {
+        $q->execute($data);
+        return $q;
+    } catch(Exception $e) {
+        // echo "$e->getMessage() <br />";
+        return false;
+    }
 }
 
 function fetch($sql, $data = []) {

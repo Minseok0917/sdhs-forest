@@ -5,9 +5,9 @@ namespace src\Controller;
 class User {
     function register() {
         extract($_POST);
-        $data = query("INSERT INTO `user` SET id=?, password=?, name=?", [$id, $password, $name]);
-        if($data) {
-            move("/register", "회원가입 성공");
+        $user = query("INSERT INTO `user` SET id=?, password=?, name=?", [$id, $password, $name]);
+        if($user) {
+            move("/login", "회원가입 성공");
         }
         back('중복되는 id 입니다.');
     }
@@ -19,5 +19,9 @@ class User {
         }
         $_SESSION['user'] = $data;
         move("/", "로그인 완료");
+    }
+    function logout() {
+        unset($_SESSION['user']);
+        move("/", "되었다 로그아웃.");
     }
 }
