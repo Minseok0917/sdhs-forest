@@ -9,6 +9,7 @@ $get (
     '/detailPost/:idx@View@detailPost',
     '/editPost/:idx@View@editPost',
     '/deletePost/:idx@View@deletePost',
+    '/getData@View@getData',
 );
 
 $post (

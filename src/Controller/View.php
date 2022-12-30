@@ -45,4 +45,12 @@ class View {
         fetch("DELETE FROM `post` WHERE idx=?", [$data[1]]);
         move('/', '완료되었다 삭제.');
     }
+    function getData($url) {
+        header('HTTP/1.1 200 OK');
+        header('Content-Type: application/json; charset=UTF-8');
+        $response = (object) [];
+        $data = fetch("SELECT * FROM `post`");
+        $response->data = $data;
+        echo json_encode($response);
+    }
 }
