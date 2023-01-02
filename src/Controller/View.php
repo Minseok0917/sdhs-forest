@@ -18,8 +18,9 @@ class View {
         view('auth/login');
     }
     function profile($data) {
-        $user = fetch("SELECT * FROM user WHERE name=?", [$data[1]]);
-        view('profile', ['id' => $user->id, 'name' => $user->name]);
+        $user = fetch("SELECT * FROM `user` WHERE name = ?", [$data[1]]);
+        $post = fetchAll("SELECT * FROM `post` WHERE writer = ?", [$data[1]]);
+        view('profile', ['id' => $user->id, 'name' => $user->name, 'post' => $post]);
     }
     function createPost() {
         view('createPost');
@@ -49,7 +50,7 @@ class View {
         header('HTTP/1.1 200 OK');
         header('Content-Type: application/json; charset=UTF-8');
         $response = (object) [];
-        $data = fetch("SELECT * FROM `post`");
+        $data = fetch("UPDATE `post` SET `likeCnt`=? WHERE idx=?", [$likeCnt+1, $url[1]]);
         $response->data = $data;
         echo json_encode($response);
     }

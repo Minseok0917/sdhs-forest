@@ -10,7 +10,7 @@ function mainPage() {
         console.log(data);
     }
     
-    const handleLikeBtnClick = e => {
+    const handleLikeBtnClick = async e => {
         e.stopPropagation();
         getData();
     }

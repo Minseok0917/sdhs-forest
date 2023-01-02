@@ -5,4 +5,5 @@
     <?php if(ss()->id == $id):?>
         <button type="button" onclick="location.href = '/createPost'">게시글 생성</button>
     <?php endif;?>
+    <?= var_dump($post)?>
 </main>
