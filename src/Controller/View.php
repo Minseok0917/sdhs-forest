@@ -32,7 +32,7 @@ class View {
     }
     function detailPost($data) {
         $post = fetch("SELECT * FROM post WHERE idx=?", [$data[1]]);
-        view('detailPost', ['idx' => $post->idx, 'writer' => $post->writer, 'title' => $post->title, 'content' => $post->content]);
+        view('detailPost', ['idx' => $post->idx, 'writer' => $post->writer, 'title' => $post->title, 'content' => $post->content, 'comment' => $post->comments]);
     }
     function editPost($data) {
         view('editPost', ['idx' => $data[1]]);
@@ -53,5 +53,8 @@ class View {
         $data = fetch("UPDATE `post` SET `likeCnt`=? WHERE idx=?", [$likeCnt+1, $url[1]]);
         $response->data = $data;
         echo json_encode($response);
+    }
+    function writeComment() {
+        echo "test";
     }
 }

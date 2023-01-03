@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,6 +8,7 @@
 </head>
 <body>
     <header>
+        <button type="button" onclick="location.href='/'">홈</button>
         <?php if(ss()):?>
             <button type="button" onclick="location.href = '/profile/<?= ss()->name?>'">프로필</button>
             <button type="button" onclick="location.href = '/logout'">로그아웃</button>
